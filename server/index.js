@@ -20,6 +20,7 @@ app.get('api', (req, res) => {
 const users = [];
 
 socketIO.on('connection', (socket) => {
+    socketIO.emit('response-new-user', users);
     console.log(`User ${socket.id} connected`);
 
     socket.on('new-user', (data) => {
